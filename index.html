@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Lab Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Virtual Lab Simulation</h1>
+
+<h2>1a. Open Circuit Test on Single Phase Transformer</h2>
+
+<h3>Aim</h3>
+<p>
+To determine the core loss and the shunt branch parameters (Rc and Xm) of a single-phase transformer by conducting the Open Circuit test.
+</p>
+
+<h3>Theory</h3>
+<p>
+In the Open Circuit (OC) test, the high-voltage (HV) winding of the transformer is kept open-circuited, and the rated voltage is applied to the low-voltage (LV) winding through an autotransformer.
+</p>
+<p>
+Since the secondary is open, the transformer draws a small no-load current from the supply. This no-load current consists of:
+</p>
+<ul>
+  <li>Working current (Iw) responsible for iron losses</li>
+  <li>Magnetizing current (Im) required to establish flux in the core</li>
+</ul>
+<p>
+The wattmeter reading represents the iron (core) losses of the transformer. From the measured voltage, current, and power, the shunt branch parameters of the equivalent circuit, namely core loss resistance (Rc) and magnetizing reactance (Xm), are calculated.
+</p>
+
+<h3>Procedure</h3>
+<ol>
+  <li>Connect the circuit as per the Open Circuit test diagram.</li>
+  <li>Keep the HV winding open.</li>
+  <li>Set the autotransformer to zero output.</li>
+  <li>Switch ON the supply.</li>
+  <li>Increase the voltage gradually using the autotransformer until the rated voltage is applied to the LV winding.</li>
+  <li>Note the readings of the voltmeter (V), ammeter (A), and wattmeter (W).</li>
+  <li>Switch OFF the supply.</li>
+  <li>Calculate Rc and Xm using the observed readings.</li>
+</ol>
+
+<h3>Transformer Rating</h3>
+<table>
+ <tr>
+   <th>Parameter</th>
+   <th>Value</th>
+ </tr>
+ <tr>
+   <td>Type</td>
+   <td>Single Phase Transformer</td>
+ </tr>
+ <tr>
+   <td>Rating</td>
+   <td>1 kVA</td>
+ </tr>
+ <tr>
+   <td>Rated Power</td>
+   <td>1 kVA</td>
+ </tr>
+ <tr>
+   <td>Primary Voltage (HV)</td>
+   <td>230 V</td>
+ </tr>
+ <tr>
+   <td>Secondary Voltage (LV)</td>
+   <td>115 V / 110 V</td>
+ </tr>
+ <tr>
+   <td>Frequency</td>
+   <td>50 Hz</td>
+ </tr>
+ <tr>
+   <td>Phase</td>
+   <td>Single Phase</td>
+ </tr>
+ <tr>
+   <td>Connection</td>
+   <td>Single Phase</td>
+ </tr>
+ <tr>
+   <td>Cooling</td>
+   <td>Air Cooled</td>
+ </tr>
+</table>
+<p><strong>Note:</strong> OC test is usually performed by applying rated voltage to the LV winding while keeping the HV winding open.</p>
+
+<h2>1b. Short Circuit Test on Single Phase Transformer</h2>
+
+<h3>Aim</h3>
+<p>
+To determine the copper losses and the series branch parameters (Req and Xeq) of a single-phase transformer by conducting the Short Circuit test.
+</p>
+
+<h3>Theory</h3>
+<p>
+In the Short Circuit (SC) test, the low-voltage (LV) winding of the transformer is short-circuited, and a low voltage is applied to the high-voltage (HV) winding through an autotransformer.
+</p>
+<p>
+The applied voltage is adjusted until the transformer draws rated current. Since the applied voltage is very small, the core flux is negligible, and hence iron losses are ignored. The wattmeter reading represents the copper losses of the transformer at rated current.
+</p>
+<p>
+From the measured voltage, current, and power, the equivalent resistance (Req), equivalent impedance (Zeq), and equivalent reactance (Xeq) of the transformer are calculated.
+</p>
+
+<h3>Procedure</h3>
+<ol>
+  <li>Connect the circuit as per the Short Circuit test diagram.</li>
+  <li>Short-circuit the LV winding securely.</li>
+  <li>Set the autotransformer to zero output.</li>
+  <li>Switch ON the supply.</li>
+  <li>Increase the voltage gradually using the autotransformer until the rated current flows through the windings.</li>
+  <li>Note the readings of the voltmeter (V), ammeter (A), and wattmeter (W).</li>
+  <li>Switch OFF the supply.</li>
+  <li>Calculate Req, Zeq, and Xeq using the observed readings.</li>
+</ol>
+
+<h3>Transformer Rating</h3>
+<table>
+ <tr>
+   <th>Parameter</th>
+   <th>Value</th>
+ </tr>
+ <tr>
+   <td>Type</td>
+   <td>Single Phase Transformer</td>
+ </tr>
+ <tr>
+   <td>Rating</td>
+   <td>1 kVA</td>
+ </tr>
+ <tr>
+   <td>Rated Power</td>
+   <td>1 kVA</td>
+ </tr>
+ <tr>
+   <td>Primary Voltage (HV)</td>
+   <td>230 V</td>
+ </tr>
+ <tr>
+   <td>Secondary Voltage (LV)</td>
+   <td>115 V / 110 V</td>
+ </tr>
+ <tr>
+   <td>Frequency</td>
+   <td>50 Hz</td>
+ </tr>
+ <tr>
+   <td>Phase</td>
+   <td>Single Phase</td>
+ </tr>
+ <tr>
+   <td>Connection</td>
+   <td>Single Phase</td>
+ </tr>
+ <tr>
+   <td>Cooling</td>
+   <td>Air Cooled</td>
+ </tr>
+</table>
+<p><strong>Note:</strong> SC test is conducted by short-circuiting the LV winding and applying a low voltage to the HV winding until rated current flows.</p>
+
+<h2>2. Sumpner’s (Back-to-Back) Test on Single Phase Transformer</h2>
+
+<h3>Aim</h3>
+<p>
+To determine the iron losses, full-load copper losses, and to predetermine the efficiency of a single-phase transformer at different load conditions by conducting Sumpner’s (Back-to-Back) test.
+</p>
+
+<h3>Theory</h3>
+<p>
+Sumpner’s test, also known as the Back-to-Back test, is a full-load test performed on two identical single-phase transformers. In this test, the primaries of both transformers are connected in parallel and supplied with rated voltage, while their secondaries are connected in series opposition.
+</p>
+<p>
+Due to series opposition of the secondary windings, the induced voltages cancel each other, resulting in zero net voltage across the secondary loop. However, by injecting a small voltage using an autotransformer, rated current can be circulated in the secondary windings.
+</p>
+<p>
+Under these conditions:
+</p>
+<ul>
+  <li>The primary side operates at rated voltage, causing iron (core) losses in both transformers.</li>
+  <li>The secondary side carries rated current, causing full-load copper losses.</li>
+</ul>
+<p>
+Thus, both iron losses and copper losses are measured simultaneously without applying actual load. One wattmeter (LPF wattmeter) measures the total iron loss, and another wattmeter (UPF wattmeter) measures the total copper loss of both transformers.
+</p>
+<p>
+From the measured losses, the efficiency of the transformer at various load conditions can be predetermined without loading the transformer externally.
+</p>
+
+<h3>Procedure</h3>
+<ol>
+  <li>Ensure that the two transformers used are identical in rating.</li>
+  <li>Connect the primary windings of both transformers in parallel across the AC supply through an autotransformer and an LPF wattmeter.</li>
+  <li>Connect the secondary windings in series opposition and keep the secondary loop open.</li>
+  <li>Connect a voltmeter across the open secondary loop to check the polarity.</li>
+  <li>Switch ON the supply and apply rated voltage to the primary side.</li>
+  <li>Confirm that the voltmeter across the secondary loop reads zero, indicating correct series opposition.</li>
+  <li>Close the secondary loop using the SPST switch.</li>
+  <li>Inject a small voltage using the autotransformer until rated current flows in the secondary circuit.</li>
+  <li>Note the readings of:
+    <ul>
+      <li>LPF Wattmeter (iron loss)</li>
+      <li>UPF Wattmeter (copper loss)</li>
+      <li>Voltmeter and Ammeter</li>
+    </ul>
+  </li>
+  <li>Switch OFF the supply after recording the readings.</li>
+  <li>Calculate iron loss, copper loss, and efficiency of the transformer.</li>
+</ol>
+
+<h3>Transformer Rating</h3>
+<table>
+ <tr>
+   <th>Parameter</th>
+   <th>Transformer-1</th>
+   <th>Transformer-2</th>
+ </tr>
+ <tr>
+   <td>Type</td>
+   <td>Single Phase Transformers (Two Identical Units)</td>
+   <td>Single Phase Transformers (Two Identical Units)</td>
+ </tr>
+ <tr>
+   <td>Rating</td>
+   <td>2 kVA (Each Transformer)</td>
+   <td>2 kVA (Each Transformer)</td>
+ </tr>
+ <tr>
+   <td>Rated Power</td>
+   <td>2 kVA</td>
+   <td>2 kVA</td>
+ </tr>
+ <tr>
+   <td>Primary Voltage</td>
+   <td>230 V</td>
+   <td>230 V</td>
+ </tr>
+ <tr>
+   <td>Secondary Voltage</td>
+   <td>230 V</td>
+   <td>230 V</td>
+ </tr>
+ <tr>
+   <td>Frequency</td>
+   <td>50 Hz</td>
+   <td>50 Hz</td>
+ </tr>
+ <tr>
+   <td>Phase</td>
+   <td>Single Phase</td>
+   <td>Single Phase</td>
+ </tr>
+ <tr>
+   <td>Connection</td>
+   <td>Single Phase</td>
+   <td>Single Phase</td>
+ </tr>
+ <tr>
+   <td>Cooling</td>
+   <td>Air Cooled</td>
+   <td>Air Cooled</td>
+ </tr>
+</table>
+<p><strong>Note:</strong> Sumpner’s test requires two identical single-phase transformers connected back-to-back to measure iron and copper losses simultaneously.</p>
+
+<a href="simulation.html" class="btn">Start Simulation</a>
+
+</body>
+</html>
