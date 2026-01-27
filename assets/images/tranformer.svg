@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400">
+
+  <!-- Title -->
+  <text x="250" y="30" font-size="18" font-weight="bold">
+    Transformer Open Circuit Test
+  </text>
+
+  <!-- Transformer Core -->
+  <line x1="380" y1="80" x2="380" y2="300" stroke="black" stroke-width="4"></line>
+  <line x1="420" y1="80" x2="420" y2="300" stroke="black" stroke-width="4"></line>
+
+  <!-- Primary Coil -->
+  <path d="M350 100 q-20 20 0 40 q-20 20 0 40 q-20 20 0 40" fill="none" stroke="black" stroke-width="2"></path>
+
+  <!-- Secondary Coil (Open) -->
+  <path d="M450 100 q20 20 0 40 q20 20 0 40 q20 20 0 40" fill="none" stroke="black" stroke-width="2"></path>
+
+  <!-- Instruments -->
+
+  <!-- Voltmeter -->
+  <circle cx="150" cy="150" r="30" stroke="black" fill="white"></circle>
+  <text x="142" y="156" font-size="16">V</text>
+
+  <!-- Ammeter -->
+  <circle cx="150" cy="250" r="30" stroke="black" fill="white"></circle>
+  <text x="142" y="256" font-size="16">A</text>
+
+  <!-- Wattmeter -->
+  <rect x="260" y="230" width="60" height="40" stroke="black" fill="white"></rect>
+  <text x="278" y="256" font-size="14">W</text>
+
+  <!-- Autotransformer -->
+  <rect x="80" y="180" width="60" height="40" stroke="black" fill="white"></rect>
+  <text x="85" y="205" font-size="12">Variac</text>
+
+  <!-- Nodes (CLICKABLE) -->
+
+  <!-- Phase -->
+  <circle class="node" data-node="A" cx="50" cy="150" r="6" fill="red"></circle>
+  <text x="35" y="145">A</text>
+
+  <!-- Voltmeter -->
+  <circle class="node" data-node="B" cx="150" cy="120" r="6" fill="red"></circle>
+  <circle class="node" data-node="C" cx="150" cy="180" r="6" fill="blue"></circle>
+
+  <!-- Primary -->
+  <circle class="node" data-node="D" cx="320" cy="150" r="6" fill="red"></circle>
+  <circle class="node" data-node="E" cx="320" cy="250" r="6" fill="blue"></circle>
+
+  <!-- Neutral -->
+  <circle class="node" data-node="F" cx="50" cy="250" r="6" fill="blue"></circle>
+  <text x="35" y="270">N</text>
+
+</svg>
