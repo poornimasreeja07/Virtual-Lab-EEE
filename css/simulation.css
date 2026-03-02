@@ -28,11 +28,12 @@ h2.title {
 
 .box {
     position: absolute;
-    width: 200px;
-    height: 220px;
-    background: transparent;
-    border: none;
-    padding: 0;
+    width: 220px;
+    height: 180px;
+    background: #e8e8e8;
+    border-radius: 6px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    padding: 10px;
 }
 }
 
@@ -226,6 +227,7 @@ th, td {
    background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
    box-shadow: 0 4px 15px rgba(255,152,0,0.4);
 }
+
 
 
 
