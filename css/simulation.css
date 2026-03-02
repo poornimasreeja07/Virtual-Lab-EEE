@@ -15,8 +15,7 @@ h2.title {
 }
 
 #panel {
-    width: 1100px;
-    height: 650px;
+    width: 1100px;    height: 650px;
     background: #c8a165;   /* wooden lab table color */
     margin: auto;
     position: relative;
@@ -25,15 +24,14 @@ h2.title {
 }
 }
 
-
 .box {
     position: absolute;
     width: 220px;
     height: 180px;
-    background: #e8e8e8;
-    border-radius: 6px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    padding: 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
 }
 }
 
@@ -227,6 +225,7 @@ th, td {
    background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
    box-shadow: 0 4px 15px rgba(255,152,0,0.4);
 }
+
 
 
 
