@@ -16,47 +16,42 @@ h2.title {
 
 #panel {
     width: 1000px;
-    height: 600px;
-    background: linear-gradient(to bottom, #e0c097, #c79a63);
+    min-height: 600px;
     margin: auto;
-    position: relative;
+
+    background: linear-gradient(to bottom, #e0c097, #c79a63);
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent 40%);
+    
     border-radius: 15px;
     box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-  background: linear-gradient(to bottom, #e0c097, #c79a63);
-background-image: 
-    radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent 40%);
-}
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+
+    position: relative;
 }
 
 .box {
-    position: absolute;
-    width: 220px;
-    height: 180px;
+    width: 300px;
     background: #f2f2f2;
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: 
-        0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .box:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 
-        0 20px 40px rgba(0,0,0,0.7);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
-
-
-.supply { left: 20px; top: 40px; }
-.meters { left: 340px; top: 40px; width: 540px; display: flex; justify-content: space-around; flex-direction: row; }
-.variac { left: 20px; top: 300px; }
-.transformer { left: 340px; top: 315px; }
-.voltmeter2 { left: 700px; top: 315px; }
 
 .box img {
     width: 100%;
     filter: drop-shadow(0 12px 15px rgba(0,0,0,0.6));
 }
-
 .box h4 {
   margin: 0 0 10px 0;
   color: #333;
@@ -236,6 +231,7 @@ th, td {
    background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
    box-shadow: 0 4px 15px rgba(255,152,0,0.4);
 }
+
 
 
 
