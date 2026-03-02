@@ -26,19 +26,15 @@ h2.title {
   overflow: hidden;
 }
 
-.box {
-  position: absolute;
-  background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
-  border: 3px solid #555;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  margin: 10px;
-}
 
 .box {
-  width: 180px;
-  height: 200px;
+    position: absolute;
+    width: 200px;
+    height: 220px;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
 }
 
 .supply { left: 20px; top: 40px; }
@@ -231,5 +227,6 @@ th, td {
    background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
    box-shadow: 0 4px 15px rgba(255,152,0,0.4);
 }
+
 
 
