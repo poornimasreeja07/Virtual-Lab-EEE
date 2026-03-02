@@ -15,12 +15,16 @@ h2.title {
 }
 
 #panel {
-    width: 1100px;    height: 650px;
-    background: #c8a165;   /* wooden lab table color */
+    width: 1000px;
+    height: 600px;
+    background: linear-gradient(to bottom, #e0c097, #c79a63);
     margin: auto;
     position: relative;
-    border-radius: 8px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border-radius: 15px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  background: linear-gradient(to bottom, #e0c097, #c79a63);
+background-image: 
+    radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent 40%);
 }
 }
 
@@ -28,12 +32,19 @@ h2.title {
     position: absolute;
     width: 220px;
     height: 180px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
+    background: #f2f2f2;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.box:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.7);
 }
+
 
 .supply { left: 20px; top: 40px; }
 .meters { left: 340px; top: 40px; width: 540px; display: flex; justify-content: space-around; flex-direction: row; }
@@ -42,8 +53,8 @@ h2.title {
 .voltmeter2 { left: 700px; top: 315px; }
 
 .box img {
-  width: 100%;
-  border-radius: 5px;
+    width: 100%;
+    filter: drop-shadow(0 12px 15px rgba(0,0,0,0.6));
 }
 
 .box h4 {
@@ -225,6 +236,7 @@ th, td {
    background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
    box-shadow: 0 4px 15px rgba(255,152,0,0.4);
 }
+
 
 
 
