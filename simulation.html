@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Labs Simulation</title>
+  <title>Virtual Transformer Lab</title>
 
   <link rel="stylesheet" href="css/simulation.css">
   <link rel="stylesheet" href="css/sumpner.css">
@@ -11,210 +11,210 @@
 
 <body>
 
-<h2 class="title">Virtual Labs  Simulation</h2>
+<h2 class="title">Virtual Transformer Testing Simulation</h2>
 
-<!-- 🔹 TABS -->
+<!-- =========================
+        TEST TABS
+========================== -->
 <div class="tabs">
   <button onclick="loadTest('OC')" class="active">Open Circuit</button>
   <button onclick="loadTest('SC')">Short Circuit</button>
   <button onclick="loadTest('SUMP')">Sumpner’s Test</button>
 </div>
 
-<!-- 🔹 DYNAMIC CONTENT -->
+<!-- =========================
+      DYNAMIC AREA
+========================== -->
 <div id="simulation-area"></div>
 
+<!-- ============================================================
+                      OPEN CIRCUIT TEMPLATE
+=============================================================== -->
 <template id="oc-template">
-<div id="panel">
 
-  <!-- SUPPLY -->
-  <div class="box supply">
-    <img src="assets/supply.png" alt="Supply" draggable="false">
-    <div class="terminal" data-id="A">A</div>
-    <div class="terminal" data-id="B">B</div>
-  </div>
+  <div id="panel">
 
-  <!-- METERS -->
-  <div class="box meters">
-    <div class="meter">
-      <h4>Voltmeter 1</h4>
-      <img src="assets/voltmeter.png" alt="Voltmeter 1" draggable="false">
-      <div class="terminal" data-id="F">F</div>
-      <div class="terminal" data-id="G">G</div>
+    <!-- SUPPLY -->
+    <div class="box supply">
+      <img src="assets/supply.png" draggable="false">
+      <div class="terminal" data-id="A">A</div>
+      <div class="terminal" data-id="B">B</div>
     </div>
-    <div class="meter">
-      <h4>Ammeter</h4>
-      <img src="assets/ammeter.png" alt="Ammeter" draggable="false">
-      <div class="terminal" data-id="H">H</div>
-      <div class="terminal" data-id="I">I</div>
+
+    <!-- METERS -->
+    <div class="box meters">
+
+      <div class="meter" id="oc-voltmeter1">
+        <h4>Voltmeter 1</h4>
+        <img src="assets/voltmeter.png" draggable="false">
+        <div class="terminal" data-id="F">F</div>
+        <div class="terminal" data-id="G">G</div>
+      </div>
+
+      <div class="meter" id="oc-ammeter">
+        <h4>Ammeter</h4>
+        <img src="assets/ammeter.png" draggable="false">
+        <div class="terminal" data-id="H">H</div>
+        <div class="terminal" data-id="I">I</div>
+      </div>
+
+      <div class="meter" id="oc-wattmeter">
+        <h4>Wattmeter</h4>
+        <img src="assets/wattmeter.png" draggable="false">
+        <div class="terminal" data-id="M">M</div>
+        <div class="terminal" data-id="C">C</div>
+        <div class="terminal" data-id="L">L</div>
+        <div class="terminal" data-id="V">V</div>
+      </div>
+
     </div>
-    <div class="meter">
-      <h4>Wattmeter</h4>
-      <img src="assets/wattmeter.png" alt="Wattmeter" draggable="false">
-      <div class="terminal" data-id="M">M</div>
-      <div class="terminal" data-id="C">C</div>
-      <div class="terminal" data-id="L">L</div>
-      <div class="terminal" data-id="V">V</div>
+
+    <!-- SECONDARY VOLTMETER -->
+    <div class="box voltmeter2">
+      <h4>Voltmeter 2</h4>
+      <img src="assets/voltmeter.png" draggable="false">
+      <div class="terminal" data-id="J">J</div>
+      <div class="terminal" data-id="K">K</div>
     </div>
+
+    <!-- VARIAC -->
+    <div class="box variac">
+      <img src="assets/variac.png" draggable="false">
+      <div class="terminal" data-id="D">D</div>
+      <div class="terminal" data-id="E">E</div>
+    </div>
+
+    <!-- TRANSFORMER -->
+    <div class="box transformer">
+      <img src="assets/transformer.png" draggable="false">
+
+      <!-- Primary -->
+      <div class="terminal" data-id="P1">P1</div>
+      <div class="terminal" data-id="P2">P2</div>
+
+      <!-- Secondary (Open) -->
+      <div class="terminal open" data-id="S1">S1</div>
+      <div class="terminal open" data-id="S2">S2</div>
+    </div>
+
+    <!-- SVG WIRES -->
+    <svg id="wires"></svg>
+
   </div>
 
-  <!-- VOLTMETER 2 -->
-  <div class="box voltmeter2">
-    <h4>Voltmeter 2</h4>
-    <img src="assets/voltmeter.png" alt="Voltmeter 2" draggable="false">
-    <div class="terminal" data-id="J">J</div>
-    <div class="terminal" data-id="K">K</div>
+  <!-- CONTROLS -->
+  <div class="controls">
+
+    <button onclick="checkConnections()" class="check-btn">Check Connections</button>
+    <button onclick="undoConnection()" class="undo-btn">Undo</button>
+    <button onclick="resetCircuit()" class="reset-btn">Reset</button>
+
+    <p id="status" class="status-msg"></p>
+
+    <label>Voltage</label>
+    <input type="range" id="voltageSlider" min="0" max="230" disabled>
+    <span id="voltageValue">0 V</span>
+
+    <p>Voltmeter: <span id="voltmeter">0</span> V</p>
+    <p>Ammeter: <span id="ammeter">0</span> A</p>
+    <p>Wattmeter: <span id="wattmeter">0</span> W</p>
+
+    <button id="addReadingBtn" onclick="addReading()" disabled>Add Reading</button>
+    <button id="submitBtn" onclick="calculateResults()" disabled>Submit</button>
+
   </div>
 
-  <!-- AUTOTRANSFORMER -->
-  <div class="box variac">
-    <img src="assets/variac.png" alt="Autotransformer" draggable="false">
-    <div class="terminal" data-id="D">D</div>
-    <div class="terminal" data-id="E">E</div>
-  </div>
+  <!-- READINGS TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>Voltage (V)</th>
+        <th>Current (A)</th>
+        <th>Power (W)</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
 
-  <!-- TRANSFORMER -->
-  <div class="box transformer">
-    <img src="assets/transformer.png" alt="Transformer" draggable="false">
-    <!-- Primary -->
-    <div class="terminal" data-id="P1">P1</div>
-    <div class="terminal" data-id="P2">P2</div>
-    <!-- Secondary (OPEN) -->
-    <div class="terminal open" data-id="S1">S1</div>
-    <div class="terminal open" data-id="S2">S2</div>
-  </div>
+  <div id="results"></div>
 
-  <svg id="wires"></svg>
-</div>
-
-<button onclick="checkConnections()" class="check-btn">Check Connections</button>
-<button onclick="undoConnection()" class="undo-btn">Undo Last Connection</button>
-<button onclick="resetCircuit()" class="reset-btn">Reset Connections</button>
-<p id="status" class="status-msg"></p>
-
-<div class="controls">
-  <label for="voltageSlider">Voltage</label>
-  <input type="range" id="voltageSlider" min="0" max="230" disabled>
-  <span id="voltageValue">0 V</span>
-
-  <p>Voltmeter: <span id="voltmeter">0</span> V</p>
-  <p>Ammeter: <span id="ammeter">0</span> A</p>
-  <p>Wattmeter: <span id="wattmeter">0</span> W</p>
-
-  <button id="addReadingBtn" onclick="addReading()" disabled>Add Reading</button>
-  <button id="submitBtn" onclick="calculateResults()" disabled>Submit</button>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Voltage (V)</th>
-      <th>Current (A)</th>
-      <th>Power (W)</th>
-    </tr>
-  </thead>
-  <tbody id="tableBody"></tbody>
-</table>
-
-
-<div id="results"></div>
 </template>
+
+<!-- ============================================================
+                      SHORT CIRCUIT TEMPLATE
+=============================================================== -->
 
 <template id="sc-template">
-<div id="panel">
 
-  <!-- SUPPLY -->
-  <div class="box supply">
-    <img src="assets/supply.png" alt="Supply" draggable="false">
-    <div class="terminal" data-id="A">A</div>
-    <div class="terminal" data-id="B">B</div>
-  </div>
+  <!-- Same structure as OC, only difference is secondary NOT open -->
 
-  <!-- METERS -->
-  <div class="box meters">
-    <div class="meter">
-      <h4>Voltmeter 1</h4>
-      <img src="assets/voltmeter.png" alt="Voltmeter 1" draggable="false">
-      <div class="terminal" data-id="F">F</div>
-      <div class="terminal" data-id="G">G</div>
+  <div id="panel">
+
+    <div class="box supply">
+      <img src="assets/supply.png" draggable="false">
+      <div class="terminal" data-id="A">A</div>
+      <div class="terminal" data-id="B">B</div>
     </div>
-    <div class="meter">
-      <h4>Ammeter</h4>
-      <img src="assets/ammeter.png" alt="Ammeter" draggable="false">
-      <div class="terminal" data-id="H">H</div>
-      <div class="terminal" data-id="I">I</div>
+
+    <div class="box meters">
+
+      <div class="meter">
+        <h4>Voltmeter 1</h4>
+        <img src="assets/voltmeter.png" draggable="false">
+        <div class="terminal" data-id="F">F</div>
+        <div class="terminal" data-id="G">G</div>
+      </div>
+
+      <div class="meter">
+        <h4>Ammeter</h4>
+        <img src="assets/ammeter.png" draggable="false">
+        <div class="terminal" data-id="H">H</div>
+        <div class="terminal" data-id="I">I</div>
+      </div>
+
+      <div class="meter">
+        <h4>Wattmeter</h4>
+        <img src="assets/wattmeter.png" draggable="false">
+        <div class="terminal" data-id="M">M</div>
+        <div class="terminal" data-id="C">C</div>
+        <div class="terminal" data-id="L">L</div>
+        <div class="terminal" data-id="V">V</div>
+      </div>
+
     </div>
-    <div class="meter">
-      <h4>Wattmeter</h4>
-      <img src="assets/wattmeter.png" alt="Wattmeter" draggable="false">
-      <div class="terminal" data-id="M">M</div>
-      <div class="terminal" data-id="C">C</div>
-      <div class="terminal" data-id="L">L</div>
-      <div class="terminal" data-id="V">V</div>
+
+    <div class="box voltmeter2">
+      <h4>Voltmeter 2</h4>
+      <img src="assets/voltmeter.png" draggable="false">
+      <div class="terminal" data-id="J">J</div>
+      <div class="terminal" data-id="K">K</div>
     </div>
+
+    <div class="box variac">
+      <img src="assets/variac.png" draggable="false">
+      <div class="terminal" data-id="D">D</div>
+      <div class="terminal" data-id="E">E</div>
+    </div>
+
+    <div class="box transformer">
+      <img src="assets/transformer.png" draggable="false">
+      <div class="terminal" data-id="P1">P1</div>
+      <div class="terminal" data-id="P2">P2</div>
+      <div class="terminal" data-id="S1">S1</div>
+      <div class="terminal" data-id="S2">S2</div>
+    </div>
+
+    <svg id="wires"></svg>
+
   </div>
 
-  <!-- VOLTMETER 2 -->
-  <div class="box voltmeter2">
-    <h4>Voltmeter 2</h4>
-    <img src="assets/voltmeter.png" alt="Voltmeter 2" draggable="false">
-    <div class="terminal" data-id="J">J</div>
-    <div class="terminal" data-id="K">K</div>
-  </div>
+  <!-- Controls + table identical to OC -->
 
-  <!-- AUTOTRANSFORMER -->
-  <div class="box variac">
-    <img src="assets/variac.png" alt="Autotransformer" draggable="false">
-    <div class="terminal" data-id="D">D</div>
-    <div class="terminal" data-id="E">E</div>
-  </div>
-
-  <!-- TRANSFORMER -->
-  <div class="box transformer">
-    <img src="assets/transformer.png" alt="Transformer" draggable="false">
-    <!-- Primary -->
-    <div class="terminal" data-id="P1">P1</div>
-    <div class="terminal" data-id="P2">P2</div>
-    <!-- Secondary (SHORTED) -->
-    <div class="terminal" data-id="S1">S1</div>
-    <div class="terminal" data-id="S2">S2</div>
-  </div>
-
-  <svg id="wires"></svg>
-</div>
-
-<button onclick="checkConnections()" class="check-btn">Check Connections</button>
-<button onclick="undoConnection()" class="undo-btn">Undo Last Connection</button>
-<button onclick="resetCircuit()" class="reset-btn">Reset Connections</button>
-<p id="status" class="status-msg"></p>
-
-<div class="controls">
-  <label for="voltageSlider">Voltage</label>
-  <input type="range" id="voltageSlider" min="0" max="230" disabled>
-  <span id="voltageValue">0 V</span>
-
-  <p>Voltmeter: <span id="voltmeter">0</span> V</p>
-  <p>Ammeter: <span id="ammeter">0</span> A</p>
-  <p>Wattmeter: <span id="wattmeter">0</span> W</p>
-
-  <button id="addReadingBtn" onclick="addReading()" disabled>Add Reading</button>
-  <button id="submitBtn" onclick="calculateResults()" disabled>Submit</button>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Voltage (V)</th>
-      <th>Current (A)</th>
-      <th>Power (W)</th>
-    </tr>
-  </thead>
-  <tbody id="tableBody"></tbody>
-</table>
-
-
-<div id="results"></div>
 </template>
 
+<!-- =========================
+         SCRIPTS
+========================== -->
 <script src="js/config.js"></script>
 <script src="js/circuit.js"></script>
 <script src="js/calculations.js"></script>
@@ -228,4 +228,3 @@
 
 </body>
 </html>
-
