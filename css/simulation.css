@@ -1,189 +1,137 @@
+body {/* ===============================
+        GLOBAL STYLES
+================================= */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #8b5a2b, #5c3317);
+  background: linear-gradient(to bottom, #1f2933, #0f172a);
   margin: 0;
   padding: 20px;
-  color: #333;
+  color: white;
 }
 
 h2.title {
-   text-align: center;
-   color: #fff;
-   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-   margin-bottom: 30px;
-   font-size: 28px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  letter-spacing: 1px;
 }
+
+
+/* ===============================
+            TABS
+================================= */
+
+.tabs {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: 0.3s ease;
+}
+
+.tabs button:hover {
+  transform: translateY(-2px);
+}
+
+.tabs button.active {
+  background: linear-gradient(145deg, #f97316, #ea580c);
+}
+
+
+/* ===============================
+            LAB PANEL
+================================= */
 
 #panel {
-    width: 1100px;
-    height: 650px;
-    margin: auto;
+  width: 1100px;
+  height: 650px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
 
-    position: relative;
-    overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
 
-    border-radius: 15px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-
-    background: linear-gradient(to bottom, #b57f50, #8b5a2b);
+  /* Wooden lab table look */
+  background: linear-gradient(to bottom, #b57f50, #8b5a2b);
 }
+
+
+/* ===============================
+          EQUIPMENT BASE
+================================= */
 
 .box {
-    width: 300px;
-    background: #f2f2f2;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.box:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+  position: absolute;
+  width: 220px;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 .box img {
-    width: 100%;
-    filter: drop-shadow(0 12px 15px rgba(0,0,0,0.6));
-}
-.box h4 {
-  margin: 0 0 10px 0;
-  color: #333;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
+  width: 100%;
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6));
 }
 
-.meter {
+.box h4 {
   text-align: center;
-  margin: 10px;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #111;
 }
+
+
+/* ===============================
+      EQUIPMENT POSITIONING
+================================= */
+
+.supply      { top: 430px; left: 70px; }
+.meters      { top: 60px;  left: 150px; }
+.voltmeter2  { top: 60px;  left: 820px; }
+.variac      { top: 430px; left: 300px; }
+.transformer { top: 260px; left: 520px; }
+
+
+/* ===============================
+            TERMINALS
+================================= */
 
 .terminal {
   width: 20px;
   height: 20px;
-  background: linear-gradient(145deg, #ff4444 0%, #cc0000 100%);
+  position: absolute;
   border-radius: 50%;
-  display: inline-block;
-  margin: 5px;
   cursor: pointer;
-  color: white;
-  font-size: 10px;
-  line-height: 20px;
-  text-align: center;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  transition: all 0.2s ease;
+  background: transparent;
+  transition: 0.2s ease;
 }
 
+/* Glow effect on hover */
 .terminal:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  box-shadow: 0 0 12px red;
 }
 
-.terminal.active {
-  background: linear-gradient(145deg, #ffff00 0%, #ffaa00 100%) !important;
-  border-color: #ff0000;
-}
-
+/* Open terminals (OC secondary) */
 .open {
-  background: linear-gradient(145deg, #888 0%, #666 100%);
-  cursor: not-allowed;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-.controls {
-  margin-top: 30px;
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: center;
-}
 
-.controls label {
-  font-weight: bold;
-  color: #333;
-}
-
-.controls input[type="range"] {
-  margin: 10px 0;
-}
-
-.check-btn {
-  background: linear-gradient(145deg, #4CAF50 0%, #45a049 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  margin: 20px 10px 20px 0;
-}
-
-.check-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.undo-btn {
-  background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  margin: 20px 10px 20px 0;
-}
-
-.undo-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,152,0,0.4);
-}
-
-.reset-btn {
-  background: linear-gradient(145deg, #f44336 0%, #d32f2f 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  margin: 20px 0;
-}
-
-.reset-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.status-msg {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0;
-  min-height: 24px;
-}
-
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid #aaa;
-}
-
-th, td {
-  padding: 8px;
-  text-align: center;
-}
+/* ===============================
+            WIRES
+================================= */
 
 #wires {
   position: absolute;
@@ -193,44 +141,102 @@ th, td {
 }
 
 #wires line {
-  stroke-width: 4;
+  stroke-width: 5;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 0 8px rgba(255,0,0,0.6));
+  transition: stroke 0.3s ease;
 }
 
-.tabs {
-   text-align: center;
-   margin-bottom: 20px;
+.correct-wire {
+  stroke: #00ff00;
 }
 
-.tabs button {
-   background: linear-gradient(145deg, #2196F3 0%, #1976D2 100%);
-   color: white;
-   border: none;
-   padding: 10px 20px;
-   font-size: 16px;
-   border-radius: 8px;
-   cursor: pointer;
-   margin: 0 10px;
-   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-   transition: all 0.3s ease;
-}
-
-.tabs button:hover {
-   transform: translateY(-2px);
-   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.tabs button.active {
-   background: linear-gradient(145deg, #FF9800 0%, #F57C00 100%);
-   box-shadow: 0 4px 15px rgba(255,152,0,0.4);
+.wrong-wire {
+  stroke: red;
 }
 
 
+/* ===============================
+            CONTROLS
+================================= */
+
+.controls {
+  width: 1100px;
+  margin: 25px auto;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.controls label {
+  font-weight: bold;
+}
+
+.controls input[type="range"] {
+  width: 300px;
+  margin: 10px;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 8px;
+  transition: 0.3s ease;
+}
+
+.check-btn {
+  background: #16a34a;
+  color: white;
+}
+
+.undo-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.reset-btn {
+  background: #dc2626;
+  color: white;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
 
 
+/* ===============================
+            TABLE
+================================= */
+
+table {
+  width: 1100px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  color: black;
+}
+
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #f1f5f9;
+}
 
 
+/* ===============================
+            STATUS
+================================= */
 
-
-
+.status-msg {
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 24px;
+  margin: 10px;
+}
